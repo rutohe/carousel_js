@@ -1,0 +1,104 @@
+:root{
+    --carouselWidth:50vw;
+    --carouselHeight:50vh;
+    --indicator:5px;
+}
+.carousel{
+    width: var(--carouselWidth);
+    height: var(--carouselHeight);
+    position: relative;
+    top: 5vh;
+    margin: auto;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+}
+.carousel-wrapper{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.carousel-link{
+    display: block;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    transform: translate3d(-0%,0,0);
+}
+.carousel-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.indicator-wrapper{
+    display: flex;
+    justify-content: center;
+    gap: 1.2vw;
+    margin-top: 1.2vh;
+}
+.indicator-wrapper div{
+    width: var(--indicator);
+    height: var(--indicator);
+    background-color: gray;
+    border: transparent 0px solid;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.modal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vw;
+    /* オーバーレイやっといて */
+    background: rgba(0, 0, 0, 0.8);
+}
+.modal-img{
+    flex-grow: 1;
+    max-width: 80vw;
+    max-height: 80vh; 
+    width: auto;       /* 本来のアスペクト比を保つ */
+    height: auto;
+    /* containでもやってみて */
+    object-fit: contain;
+    user-select: none;
+}
+.modal-prev,
+.modal-next,
+.modal-close {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 3vw;
+    font-weight: lighter;
+    cursor: pointer;
+    align-self: center;
+    user-select: none;
+    padding: 0;
+}
+.modal-close{
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+}
+.alt{
+    position: absolute;
+    bottom: 0.25vw;
+    left: 50%;
+    transform: translate(-50%,0);
+    color: white;
+    font-size: 1.5vw;
+    user-select: none;
+}
+.nodisplay{
+    display: none;
+}
+.indicator-wrapper div.now{
+    background-color: black;
+}
