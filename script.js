@@ -1,7 +1,7 @@
 //きれいに書きなおしといて 08/10:もうちょい関数化してまとめる
 //currentindexとtransform3dやインジケーター更新の処理が分散している→一つの関数にして使いまわそう
 
-export function createCarousel({
+function createCarousel({
     root = document.querySelector('.carousel'),
     loop = true,
     loopSecond = 4000 ,
@@ -238,7 +238,7 @@ export function createCarousel({
     window.addEventListener('mousemove',(e)=>{
         if(!isDown) return;
         e.preventDefault();
-        walk = (e.pageX - startX) * 100 / imgwidth + translateX;//多分こいつ悪い
+        walk = (e.pageX - startX) * 100 / imgwidth + translateX;
         wrapperItems.forEach((item) => {
             item.style.transition = 'none';
             item.style.transform = `translate3d(${walk}%,0,0)`;
